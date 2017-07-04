@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web_SellBuy", "web_SellBuy\web_SellBuy.csproj", "{11372F15-519B-49C5-8B01-A83B78244FDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB_Entity_DAL", "DB_Entity_DAL\DB_Entity_DAL.csproj", "{4BA57744-C1B1-47F2-BCBA-7DBDF853CD66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11372F15-519B-49C5-8B01-A83B78244FDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11372F15-519B-49C5-8B01-A83B78244FDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11372F15-519B-49C5-8B01-A83B78244FDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11372F15-519B-49C5-8B01-A83B78244FDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BA57744-C1B1-47F2-BCBA-7DBDF853CD66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BA57744-C1B1-47F2-BCBA-7DBDF853CD66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BA57744-C1B1-47F2-BCBA-7DBDF853CD66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BA57744-C1B1-47F2-BCBA-7DBDF853CD66}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
