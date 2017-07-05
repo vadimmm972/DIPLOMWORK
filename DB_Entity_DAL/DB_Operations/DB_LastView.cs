@@ -30,9 +30,10 @@ namespace DB_Entity_DAL.DB_Operations
             {
                 using (Sell_BuyEntities db = new Sell_BuyEntities())
                 {
-                    List<LastView> country = (from x in db.LastViews
-                                             select x.Product).ToList();
-                    return country;
+                    //List<LastView> country = (from x in db.LastViews
+                    //                         select x.Product).ToList();
+                    //return country;
+                    return null;
                 }
             }
             catch (Exception)

@@ -17,11 +17,13 @@ namespace DB_Entity_DAL.MedelsDataBase
         public Category()
         {
             this.Magazines = new HashSet<Magazine>();
+            this.Products = new HashSet<Product>();
         }
     
         public int id { get; set; }
         public string name_category { get; set; }
     
         public virtual ICollection<Magazine> Magazines { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }
