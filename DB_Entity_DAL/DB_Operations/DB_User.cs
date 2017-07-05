@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DB_Entity_DAL.MedelsDataBase;
+using NLog;
 
 namespace DB_Entity_DAL.DB_Operations
 {
     public class DB_User
     {
-
+        private OperationslogError nLog = new OperationslogError();
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public bool searchUser(string _login)
         {
             try
@@ -28,8 +30,9 @@ namespace DB_Entity_DAL.DB_Operations
                     
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                nLog.WriteLogError("SellBuy", "DB_Entity_DAL -> DB_Operation -> DB_User -> searchUser :\r\n Message: " + e.Message + "\r\n " + e.StackTrace + "", "", 1);
                 return false;
             }
            
@@ -46,7 +49,7 @@ namespace DB_Entity_DAL.DB_Operations
             }
             catch (Exception e)
             {
-
+                nLog.WriteLogError("SellBuy", "DB_Entity_DAL -> DB_Operation -> DB_User -> InsertUser :\r\n Message: " + e.Message + "\r\n " + e.StackTrace + "", "", 1);
                 return "Error:" + e.Message;
             }
         }

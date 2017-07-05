@@ -20,3 +20,6 @@ M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\web_SellBuy\bin\EntityFramework.xml
 M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\web_SellBuy\obj\Debug\web_SellBuy.csprojResolveAssemblyReference.cache
 M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\web_SellBuy\obj\Debug\web_SellBuy.dll
 M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\web_SellBuy\obj\Debug\web_SellBuy.pdb
+M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\web_SellBuy\bin\NLog.config
+M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\web_SellBuy\bin\NLog.dll
+M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\web_SellBuy\bin\NLog.xml
