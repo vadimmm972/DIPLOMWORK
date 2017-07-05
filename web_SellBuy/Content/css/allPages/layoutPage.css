@@ -1,0 +1,29 @@
+﻿body {
+}
+		nav{
+			background:rgba(255,255,255,0.25);
+		}
+		.navbar-login {
+    width: 305px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+.icon-size {
+    font-size: 87px;
+}
+.text-left {
+    text-align: left;
+}
+
+.small, .small {
+    font-size: 85%;
+}
+.row{
+	margin:0px;
+}
+
+
+.navNavigationStyle{
+background-image: linear-gradient(rgb(237, 237, 237) 0%, rgb(246, 246, 246) 54%, rgb(255, 255, 255) 72%, rgb(255, 255, 255) 100%); 
+	margin:2px;
+}

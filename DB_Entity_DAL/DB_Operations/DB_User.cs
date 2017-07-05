@@ -9,6 +9,32 @@ namespace DB_Entity_DAL.DB_Operations
 {
     public class DB_User
     {
+
+        public bool searchUser(string _login)
+        {
+            try
+            {
+                using (Sell_BuyEntities db = new Sell_BuyEntities())
+                {
+                    bool  user = Convert.ToBoolean(db.Users.FirstOrDefault(x => x.C_login == _login));
+                    if (user)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                    
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+           
+        }
+
         public string InsertUser(User user)
         {
             try

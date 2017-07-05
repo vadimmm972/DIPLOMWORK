@@ -14,14 +14,20 @@ namespace web_SellBuy.Controllers
         // GET: /Base/
         public ActionResult Index()
         {
-            Brand b = new Brand
-            {
-                name_brand = "asdass"
-            };
+            //Brand b = new Brand
+            //{
+            //    name_brand = "asdass"
+            //};
 
-            DB_Brand n = new DB_Brand();
-            n.InsertBrand(b);
-            return View();
+            //DB_Brand n = new DB_Brand();
+            //n.InsertBrand(b);
+            return View("index");
         }
+
+        //[HttpGet]
+        //public ActionResult SI()
+        //{
+        //    return View("SI");
+        //}
 	}
 }
