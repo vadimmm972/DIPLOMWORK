@@ -139,6 +139,10 @@
       <Project>{4ba57744-c1b1-47f2-bcba-7dbdf853cd66}</Project>
       <Name>DB_Entity_DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OperationTools\OperationTools.csproj">
+      <Project>{abf0abe5-8a03-4ed3-a8eb-f3919e1d22c6}</Project>
+      <Name>OperationTools</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
