@@ -2,6 +2,7 @@
 using DB_Entity_DAL.MedelsDataBase;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,20 +15,48 @@ namespace web_SellBuy.Controllers
         // GET: /Base/
         public ActionResult Index()
         {
-            //Brand b = new Brand
-            //{
-            //    name_brand = "asdass"
-            //};
-
-            //DB_Brand n = new DB_Brand();
-            //n.InsertBrand(b);
+           
             return View("index");
         }
 
-        //[HttpGet]
-        //public ActionResult SI()
-        //{
-        //    return View("SI");
-        //}
+
+        public JsonResult UploadImage()
+        {
+            Random rand = new Random();
+
+            int temp;
+
+            temp = rand.Next(1000000000);
+            var pic = System.Web.HttpContext.Current.Request.Files["HelpSectionImages"];
+            var id = System.Web.HttpContext.Current.Request.Form["id"];
+            var operation = System.Web.HttpContext.Current.Request.Form["operation"];
+
+            var fileName = "profile_";
+            fileName += temp;
+            fileName += "_";
+
+            fileName += "us.jpg";
+
+            if (operation == "1")
+            {
+                var path = Path.Combine(Server.MapPath("~/Content/images/imagesPhotos"), fileName.Trim());
+                pic.SaveAs(path);
+            }
+            if (operation == "2")
+            {
+                var path = Path.Combine(Server.MapPath("~/Content/images/userPhotoForProfile"), fileName.Trim());
+                pic.SaveAs(path);
+                ViewBag.PhotoUser = fileName.Trim();
+            }
+
+            var imgpath = "~/Content/images/userPhotoForProfile" + fileName.Trim();
+
+            // var jsonResult = Json(imgpath, JsonRequestBehavior.AllowGet);
+            return Json(fileName.Trim());
+
+        }
 	}
+
+
+
 }
