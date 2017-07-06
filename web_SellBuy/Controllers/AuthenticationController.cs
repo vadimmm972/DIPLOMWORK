@@ -20,7 +20,7 @@ namespace web_SellBuy.Controllers
         public ActionResult SignIn()
         {
           
-            return View();
+            return View(); 
         }
 
         public ActionResult Authorization()
