@@ -7,14 +7,14 @@ using DB_Entity_DAL.MedelsDataBase;
 
 namespace DB_Entity_DAL.DB_Operations
 {
-   public class DB_Sites
+   public class DB_City
     {
-        public string InsertRegion(Site sity)
+        public string InsertRegion(City sity)
         {
             try
             {
                 Sell_BuyEntities db = new Sell_BuyEntities();
-                db.Sites.Add(sity);
+                db.Cities.Add(sity);
                 db.SaveChanges();
                 return sity.name_sity + " was succefully inserted";
             }
@@ -24,13 +24,13 @@ namespace DB_Entity_DAL.DB_Operations
             }
         }
 
-        public string UpdateRegion(int id, Site sity)
+        public string UpdateRegion(int id, City sity)
         {
             try
             {
 
                 Sell_BuyEntities db = new Sell_BuyEntities();
-                Site s = db.Sites.Find(id);
+                City s = db.Cities.Find(id);
                 s.id_region = sity.id_region;
                 s.id_country = sity.id_country;
                 s.name_sity = sity.name_sity;
@@ -45,10 +45,10 @@ namespace DB_Entity_DAL.DB_Operations
 
         }
 
-        public List<Site> GetCityByIdRegion(int id)
+        public List<City> GetCityByIdRegion(int id)
         {
             Sell_BuyEntities db = new Sell_BuyEntities();
-            var regionToCountry = (from r in db.Sites
+            var regionToCountry = (from r in db.Cities
                                    where r.id_region == id
                                    select r).ToList();
 
@@ -60,10 +60,10 @@ namespace DB_Entity_DAL.DB_Operations
             try
             {
                 Sell_BuyEntities db = new Sell_BuyEntities();
-                Site sity = db.Sites.Find(id);
+                City sity = db.Cities.Find(id);
 
-                db.Sites.Attach(sity);
-                db.Sites.Remove(sity);
+                db.Cities.Attach(sity);
+                db.Cities.Remove(sity);
                 db.SaveChanges();
 
                 return sity.name_sity + " was succefully delited";
@@ -74,13 +74,13 @@ namespace DB_Entity_DAL.DB_Operations
             }
         }
 
-        public List<Site> GetallCity()
+        public List<City> GetallCity()
         {
             try
             {
                 using (Sell_BuyEntities db = new Sell_BuyEntities())
                 {
-                    List<Site> sity = (from x in db.Sites
+                    List<City> sity = (from x in db.Cities
                                        select x).ToList();
                     return sity;
                 }

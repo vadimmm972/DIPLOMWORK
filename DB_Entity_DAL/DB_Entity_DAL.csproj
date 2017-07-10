@@ -77,6 +77,9 @@
     <Compile Include="MedelsDataBase\Category.cs">
       <DependentUpon>SellBuy_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="MedelsDataBase\City.cs">
+      <DependentUpon>SellBuy_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="MedelsDataBase\Comment.cs">
       <DependentUpon>SellBuy_Model.tt</DependentUpon>
     </Compile>
@@ -112,9 +115,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SellBuy_Model.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="MedelsDataBase\Site.cs">
-      <DependentUpon>SellBuy_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="MedelsDataBase\User.cs">
       <DependentUpon>SellBuy_Model.tt</DependentUpon>

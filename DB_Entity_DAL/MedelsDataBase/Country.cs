@@ -17,15 +17,15 @@ namespace DB_Entity_DAL.MedelsDataBase
         public Country()
         {
             this.Regions = new HashSet<Region>();
-            this.Sites = new HashSet<Site>();
             this.Users = new HashSet<User>();
+            this.Cities = new HashSet<City>();
         }
     
         public int id { get; set; }
         public string name_country { get; set; }
     
         public virtual ICollection<Region> Regions { get; set; }
-        public virtual ICollection<Site> Sites { get; set; }
         public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<City> Cities { get; set; }
     }
 }

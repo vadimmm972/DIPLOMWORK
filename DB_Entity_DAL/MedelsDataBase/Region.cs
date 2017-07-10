@@ -16,8 +16,8 @@ namespace DB_Entity_DAL.MedelsDataBase
     {
         public Region()
         {
-            this.Sites = new HashSet<Site>();
             this.Users = new HashSet<User>();
+            this.Cities = new HashSet<City>();
         }
     
         public int id { get; set; }
@@ -25,7 +25,7 @@ namespace DB_Entity_DAL.MedelsDataBase
         public Nullable<int> id_country { get; set; }
     
         public virtual Country Country { get; set; }
-        public virtual ICollection<Site> Sites { get; set; }
         public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<City> Cities { get; set; }
     }
 }

@@ -31,7 +31,7 @@ namespace OperationTools.common
     {
         DB_Country dbCountry = new DB_Country();
         DB_Regions dbRegion = new DB_Regions();
-        DB_Sites dbCity = new DB_Sites();
+        DB_City dbCity = new DB_City();
         public List<ModelCountry> GetAllCountries()
         {
             List<ModelCountry> modelC = null;
@@ -70,8 +70,17 @@ namespace OperationTools.common
         public List<ModelCity> GetAllCity(int id)
         {
             List<ModelCity> modelC = null;
-            List<Site> city = dbCity.GetallCity();
+            List<City> city = dbCity.GetCityByIdRegion(id);
 
+            if (city.Count != 0)
+            {
+                modelC = new List<ModelCity>();
+
+                for (int i = 0; i < city.Count; i++)
+                {
+                    modelC.Add(new ModelCity { idCity = city[i].id, NameCity = city[i].name_sity });
+                }
+            }
 
             return modelC;
         }

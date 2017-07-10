@@ -45,7 +45,7 @@ namespace DB_Entity_DAL.MedelsDataBase
         public virtual Language Language { get; set; }
         public virtual ICollection<LastView> LastViews { get; set; }
         public virtual Region Region { get; set; }
-        public virtual Site Site { get; set; }
         public virtual ICollection<UserMagazine> UserMagazines { get; set; }
+        public virtual City City { get; set; }
     }
 }

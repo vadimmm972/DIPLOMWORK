@@ -59,26 +59,26 @@ function getRegion(event) {
 }
 
 
-function getСity(event) {
+function getCity(event) {
     var idRegion = event.value;
 
     $.ajax({
         url: 'Base/GetCity',
         type: "POST",
-        data: { id: idCountry },
+        data: { id: idRegion },
         //  processData: false,
         // contentType: false,
         success: function (response) {
 
-            var regSelect = document.getElementById("region");
+            var regSelect = document.getElementById("city");
             for (var i = 0; i < response.length; i++) {
                 var option = document.createElement("option");
-                option.text = response[i].NameRegion;
-                option.value = response[i].idRegion;
+                option.text = response[i].NameCity;
+                option.value = response[i].idCity;
                 regSelect.add(option);
             }
 
-            $(".regionClass").css('display', 'block');
+            $(".sityClass").css('display', 'block');
         },
         error: function (e) {
 
