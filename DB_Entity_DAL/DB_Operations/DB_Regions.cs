@@ -80,11 +80,11 @@ namespace DB_Entity_DAL.DB_Operations
         }
 
 
-        public List<Region> GetRegionToIdCountry(int id)
+        public List<Region> GetRegionByIdCountry(int id)
         {
             Sell_BuyEntities db = new Sell_BuyEntities();
             var regionToCountry = (from r in db.Regions
-                                   where r.id == id
+                                   where r.id_country == id
                                    select r).ToList();
 
             return regionToCountry;

@@ -45,6 +45,16 @@ namespace DB_Entity_DAL.DB_Operations
 
         }
 
+        public List<Site> GetCityByIdRegion(int id)
+        {
+            Sell_BuyEntities db = new Sell_BuyEntities();
+            var regionToCountry = (from r in db.Sites
+                                   where r.id_region == id
+                                   select r).ToList();
+
+            return regionToCountry;
+        }
+
         public string DeleteRegion(int id)
         {
             try
@@ -64,7 +74,7 @@ namespace DB_Entity_DAL.DB_Operations
             }
         }
 
-        public List<Site> GetallRegion()
+        public List<Site> GetallCity()
         {
             try
             {

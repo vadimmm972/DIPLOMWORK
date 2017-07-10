@@ -1,5 +1,6 @@
 ﻿using DB_Entity_DAL.DB_Operations;
 using DB_Entity_DAL.MedelsDataBase;
+using OperationTools.common;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,6 +20,7 @@ namespace web_SellBuy.Controllers
             return View("index");
         }
 
+        Location locationTools = new Location();
 
         public JsonResult UploadImage()
         {
@@ -54,6 +56,24 @@ namespace web_SellBuy.Controllers
             // var jsonResult = Json(imgpath, JsonRequestBehavior.AllowGet);
             return Json(fileName.Trim());
 
+        }
+
+        [HttpPost]
+        public JsonResult GetCountries()
+        {
+            return Json(locationTools.GetAllCountries());
+        }
+
+        [HttpPost]
+        public JsonResult GetRegions(int id)
+        {
+            return Json(locationTools.GetAllRegions(id));
+        }
+
+        [HttpPost]
+        public JsonResult GetCity(int id)
+        {
+            return Json(locationTools.GetAllCity(id));
         }
 	}
 

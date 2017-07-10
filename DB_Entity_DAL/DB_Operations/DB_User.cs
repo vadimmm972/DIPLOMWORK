@@ -32,25 +32,25 @@ namespace DB_Entity_DAL.DB_Operations
             }
             catch (Exception e)
             {
-                nLog.WriteLogError("SellBuy", "DB_Entity_DAL -> DB_Operation -> DB_User -> searchUser :\r\n Message: " + e.Message + "\r\n " + e.StackTrace + "", "", 1);
+                nLog.WriteLog("DB_Entity_DAL -> DB_Operation -> DB_User -> searchUser :\r\n Message: " + e.Message + "\r\n " + e.StackTrace + "",  0);
                 return false;
             }
            
         }
 
-        public string InsertUser(User user)
+        public bool InsertUser(User user)
         {
             try
             {
                 Sell_BuyEntities db = new Sell_BuyEntities();
                 db.Users.Add(user);
                 db.SaveChanges();
-                return user.name_last + "was succefully inserted";
+                return true;
             }
             catch (Exception e)
             {
-                nLog.WriteLogError("SellBuy", "DB_Entity_DAL -> DB_Operation -> DB_User -> InsertUser :\r\n Message: " + e.Message + "\r\n " + e.StackTrace + "", "", 1);
-                return "Error:" + e.Message;
+                nLog.WriteLog("DB_Entity_DAL -> DB_Operation -> DB_User -> InsertUser :\r\n Message: " + e.Message + "\r\n " + e.StackTrace + "", 0);
+                return false;
             }
         }
 

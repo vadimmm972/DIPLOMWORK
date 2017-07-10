@@ -11,6 +11,7 @@
     <title>Authorization</title>
     <script src="~/Content/js/jquery/jquery.js"></script>
     <script src="~/Content/js/bootsrap/bootstrap.min.js"></script>
+    <script src="~/Content/js/allSite/commonJs.js"></script>
     <link href="~/Content/css/AuthenticationStyle/authentication.css" rel="stylesheet" />
     <link href="~/Content/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <script src="~/Content/js/AuthenticationJs/SignIn_SignUp.js"></script>
@@ -87,43 +88,44 @@
                                     <div class="cols-sm-10">
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-globe" aria-hidden="true"></i></span>
-                                            <select class="form-control" name="country" id="country" placeholder="Please select your Country">
-                                                <option>-select-</option>
+                                            <select class="form-control" name="country" id="country" onchange="getRegion(this)">
+                                                <option></option>
+                                                @*<option>-select-</option>
                                                 <option>India</option>
                                                 <option>Singapore</option>
                                                 <option>Malaysia</option>
-                                                <option>USA</option>
+                                                <option>USA</option>*@
                                             </select>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group regionClass">
                                     <label for="country" class="cols-sm-2 control-label">Регион</label>
                                     <div class="cols-sm-10">
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i></span>
-                                            <select class="form-control" name="region" id="region" placeholder="Please select your Region">
-                                                <option>-select-</option>
-                                                <option>India</option>
+                                            <select class="form-control" name="region" id="region" onchange="getСity">
+                                                <option></option>
+                                                @*<option>India</option>
                                                 <option>Singapore</option>
                                                 <option>Malaysia</option>
-                                                <option>USA</option>
+                                                <option>USA</option>*@
                                             </select>
                                         </div>
                                     </div> 
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group sityClass">
                                     <label for="country" class="cols-sm-2 control-label">Город</label>
                                     <div class="cols-sm-10">
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i></span>
-                                            <select class="form-control" name="city" id="city" placeholder="Please select your City">
-                                                <option>-select-</option>
-                                                <option>India</option>
+                                            <select class="form-control" name="city" id="city">
+                                                <option></option>
+                                                @*<option>India</option>
                                                 <option>Singapore</option>
                                                 <option>Malaysia</option>
-                                                <option>USA</option>
+                                                <option>USA</option>*@
                                             </select>
                                         </div>
                                     </div>
@@ -151,7 +153,7 @@
                                 </a>*@
                              
 
-                                <span onclick="registrationUser()" class="btn btn-sm btn-primary btn-block" role="button">Регистрация</span>
+                                <span onclick="UploadImage()" class="btn btn-sm btn-primary btn-block" role="button">Регистрация</span>
                             </form>
                         </div>
                     </div>

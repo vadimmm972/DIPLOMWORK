@@ -23,3 +23,5 @@ M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\web_SellBuy\obj\Debug\web_SellBuy.pdb
 M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\web_SellBuy\bin\NLog.config
 M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\web_SellBuy\bin\NLog.dll
 M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\web_SellBuy\bin\NLog.xml
+M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\web_SellBuy\bin\OperationTools.dll
+M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\web_SellBuy\bin\OperationTools.pdb

@@ -9,6 +9,7 @@ namespace DB_Entity_DAL.DB_Operations
 {
     public class DB_Country
     {
+        private OperationslogError nLog = new OperationslogError();
         public string InsertCountry(Country country)
         {
             try
@@ -88,8 +89,9 @@ namespace DB_Entity_DAL.DB_Operations
                     return country;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                nLog.WriteLog("DB_Entity_DAL -> DB_Operation -> DB_Country -> GetallCountries :\r\n Message: " + e.Message + "\r\n " + e.StackTrace , 0);
                 return null;
             }
         }
