@@ -27,3 +27,10 @@
 background-image: linear-gradient(rgb(237, 237, 237) 0%, rgb(246, 246, 246) 54%, rgb(255, 255, 255) 72%, rgb(255, 255, 255) 100%); 
 	margin:2px;
 }
+
+
+
+.signInBtn{
+    margin:10px;
+    cursor:pointer;
+}

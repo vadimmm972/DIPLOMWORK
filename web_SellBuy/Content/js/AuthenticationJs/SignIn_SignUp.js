@@ -1,8 +1,16 @@
-﻿window.onload = function()
+﻿var checkIdCountry = 0;
+var checkIdRegion = 0;
+var checkIdCity = 0;
+
+window.onload = function ()
 {
-    $(".regionClass").css('display', 'none');
-    $(".sityClass").css('display', 'none');
-    getCountries();
+    var url = window.location.href;
+    var test = url.indexOf("SignIn")
+    if (test == -1) {
+        $(".regionClass").css('display', 'none');
+        $(".sityClass").css('display', 'none');
+        getCountries();
+    }
 }
 
 
@@ -34,6 +42,7 @@ function getCountries() {
 
 function getRegion(event) {
     var idCountry = event.value;
+    checkIdCountry = idCountry;
     $.ajax({
         url: 'Base/GetRegions',
         type: "POST",
@@ -61,7 +70,7 @@ function getRegion(event) {
 
 function getCity(event) {
     var idRegion = event.value;
-
+    checkIdRegion = idRegion;
     $.ajax({
         url: 'Base/GetCity',
         type: "POST",
@@ -87,6 +96,10 @@ function getCity(event) {
 }
 
 
+function getIdCity(event) {
+    checkIdCity = event.value;
+}
+
 function registrationUser() {
 
     var surname = $("#surname").val();;
@@ -102,23 +115,54 @@ function registrationUser() {
     var idSity = $("#password").val();;
    
     if (password !== confirmPass) {
-        alert("Different passwords");
+        alert("Пароли не совпадают");
     }
     else {
-        var imageName = UploadImage(2);
-        $.ajax({
-            url: 'AuthorizationUser',
-            type: "POST",
-            //   data: { id: parseInt(event.value) },
-            success: function (response) {
-
-                alert(response);
-
-            }
-        });
+        //var imageName = UploadImage(2);
+        if (imageName == "") {
+            alert("Загрузите изображения");
+        }
+        else {
+            $.ajax({
+                url: 'AuthorizationUser',
+                type: "POST",
+                data: { _surname: surname, _name: name, _lastname: lastname, _phone: phone, _email: email, _login: login, _password: password, _idCountry: checkIdCountry, _idRegion: checkIdRegion, _idCity: checkIdCity, _photo: imageName },
+                success: function (response) {
+                    if (response != "") {
+                        alert(response);
+                    }
+                    else {
+                        window.location.href = "SignIn";
+                    }
+                }
+            });
+        }
+        
     }
 
 
+}
+
+
+
+function SignIn() {
+
+    var login = $("#Sign_login").val();
+    var password = $("#Sign_password").val();
+
+    $.ajax({
+        url: 'Authentication/SignInUser',
+        type: "POST",
+        data: { _login:login , _password:password},
+        success: function (response) {
+            if (response != "success") {
+                alert(response);
+            }
+            else {
+                window.location.href = "Home";
+            }
+        }
+    });
 }
 
 

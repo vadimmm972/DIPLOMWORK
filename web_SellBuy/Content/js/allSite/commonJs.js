@@ -1,12 +1,40 @@
-﻿function UploadImage(option) {
-    var op = option;
-    //if (option == "magImg") {
-    //    op = "1";
-    //}
-    //if (option == "usimg") {
-    //    op = "2";
-    //}
+﻿imageName = "";
 
+
+
+window.onload = function () {
+
+}
+
+
+
+function loadInfoUsersSetting() {
+    $.ajax({
+        url: 'Authentication/LoadUserInfo',
+        type: "POST",
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (response) {
+            imageName = response;
+            loading(0);
+        }
+    });
+}
+
+
+function loading(change) {
+    if (change == 1) {
+        $(".loadingBlock").css("display", "block");
+    }
+    else if (change == 0) {
+        $(".loadingBlock").css("display", "none");
+    }
+}
+
+function UploadImage(option) {
+    var op = option;
+    loading(1);
     var data = new FormData();
     var files = $(".uploadImage").get(0).files;
     if (files.length > 0) {
@@ -27,14 +55,22 @@
         contentType: false,
         data: data,
         success: function (response) {
-            // $("body").append("<img src=\"" + response + "\" >");
-            //if (op == "1") {
-            //    $("#imgSaveMag").val(response);
-            //}
-            //if (op == "2") {
-            //    $("#imgSave").val(response);
-            //}
-            return response;
+            imageName = response;
+            loading(0);
         }
     });
+}
+
+
+
+function SinIn_SIgnOut_RegisterUser_click(param) {
+    if (param == 1) {
+        window.location.href = "SignIn";
+    }
+    else if (param == 2) {
+        window.location.href = "Authorization";
+    }
+    else if (param == 3) {
+
+    }
 }
