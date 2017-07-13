@@ -15,6 +15,11 @@ namespace web_SellBuy
             //sitePartUrl = "Authentication/";
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute(
+           name: "UserProfile",
+           url: "UserProfile",
+           defaults: new { controller = "UserProfile", action = "Index" }
+        );
 
             routes.MapRoute(
              name: "SignIn",

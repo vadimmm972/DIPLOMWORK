@@ -1,5 +1,6 @@
 ﻿using DB_Entity_DAL.DB_Operations;
 using DB_Entity_DAL.MedelsDataBase;
+using OperationTools.common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,8 @@ namespace OperationTools
     {
         public string userSurname { get; set; }
         public string userName { get; set; }
-        public string userPhotoProfile{ get; set; }
+        public string userPhotoProfile { get; set; }
+        public string userMail { get; set; }
 
     }
 
@@ -26,6 +28,7 @@ namespace OperationTools
         //
         private DB_User dbUser = new DB_User();
         private User user = null;
+        private AllUrlPuth url = new AllUrlPuth();
         public string RegisterUser(string _surname, string _name, string _lastname
             , string _phone, string _email, string _login
             , string _password, int _idcountry, int _idRegion
@@ -100,9 +103,11 @@ namespace OperationTools
             {
                 usInfo = new UserInfoTools
                 {
-                    userSurname = user.name_last,
-                    userPhotoProfile = user.C_image,
-                    userName = user.name_middle
+                    userSurname = userInfo.name_first,
+                    userName = userInfo.name_middle,
+                    userPhotoProfile = url.photoProfileUserPuth +  userInfo.C_image,
+                    userMail = userInfo.mail
+
                 };
             }
 

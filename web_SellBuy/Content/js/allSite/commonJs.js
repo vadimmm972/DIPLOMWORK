@@ -3,21 +3,31 @@
 
 
 window.onload = function () {
-
+    loadInfoUser();
 }
 
 
 
-function loadInfoUsersSetting() {
+function loadInfoUser() {
     $.ajax({
         url: 'Authentication/LoadUserInfo',
         type: "POST",
         processData: false,
         contentType: false,
-        data: data,
         success: function (response) {
-            imageName = response;
-            loading(0);
+            if(response != null){
+                $(".nameBlockInfoUser").text(response.userName);
+                $(".SurnameLastNameInfo").text(response.userSurname + " " + response.userName);
+                $(".SurnameLastNameInfo").text(response.userSurname + " " + response.userName);
+                $(".emailProfileInfo").text(response.userMail);
+                if (response.userPhotoProfile == null) {
+                    $(".userPhoto").addClass("glyphicon-user");
+                }
+                else {
+                    var imgProfile = "<img class=\"imgProfileStyle\" src=\"" + response.userPhotoProfile + "\"/>";
+                    $(".userPhoto").append(imgProfile);
+                }
+            }
         }
     });
 }
@@ -71,6 +81,14 @@ function SinIn_SIgnOut_RegisterUser_click(param) {
         window.location.href = "Authorization";
     }
     else if (param == 3) {
-
+        $.ajax({
+            url: 'Authentication/SignOut',
+            type: "POST",
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                    window.location.reload();
+            }
+        });
     }
 }

@@ -34,3 +34,7 @@ background-image: linear-gradient(rgb(237, 237, 237) 0%, rgb(246, 246, 246) 54%,
     margin:10px;
     cursor:pointer;
 }
+
+.imgProfileStyle{
+    width:100%;
+}
