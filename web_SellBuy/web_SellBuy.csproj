@@ -95,8 +95,10 @@
     <Content Include="Content\css\bootstrap\bootstrap.css" />
     <Content Include="Content\css\bootstrap\bootstrap.min.css" />
     <Content Include="Content\css\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\css\web\infoProfile.css" />
     <Content Include="Content\images\fontAuthentication\fonBody.jpg" />
     <Content Include="Content\js\allSite\commonJs.js" />
+    <Content Include="Content\js\allSite\updateInfoProfile.js" />
     <Content Include="Content\js\AuthenticationJs\SignIn_SignUp.js" />
     <Content Include="Content\js\bootsrap\bootstrap.js" />
     <Content Include="Content\js\bootsrap\bootstrap.min.js" />

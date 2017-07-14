@@ -3,6 +3,49 @@
     ViewBag.Title = "UserProfile";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
 }
+<link href="~/Content/css/web/infoProfile.css" rel="stylesheet" />
+<script src="~/Content/js/allSite/updateInfoProfile.js"></script>
+<div class="wrapper">
+    <form class="form-signin">
+        <h3 class="form-signin-heading">Информация профиля</h3>
+       
 
-<h2>UserProfile</h2>
+        <input type="text" id="infoP_surname" class="form-control" name="infoP_surname" />
+        <button onclick="updateSurname();" type="button" value="" class="btnupdateInfoProfileInput btn btn-lg btn-primary btn-block">Изменить</button>
+
+        <input type="text" id="infoP_name" class="form-control" name="infoP_name" />
+        <button onclick="updateNameUser();" type="button" value="" class="btnupdateInfoProfileInput btn btn-lg btn-primary btn-block">Изменить</button>
+
+        <input type="text" id="infoP_lastname" class="form-control" name="infoP_lastname" />
+        <button onclick="updateLastName();" type="button" value="" class="btnupdateInfoProfileInput btn btn-lg btn-primary btn-block">Изменить</button>
+
+        <input type="text" id="infoP_phone" class="form-control" name="infoP_phone" />
+        <button onclick="updatePhone();" type="button" value="" class="btnupdateInfoProfileInput btn btn-lg btn-primary btn-block">Изменить</button>
+
+        <input type="text" id="infoP_mail" class="form-control" name="infoP_mail" />
+        <button onclick="updateMail();" type="button" value="" class="btnupdateInfoProfileInput btn btn-lg btn-primary btn-block">Изменить</button>
+
+        <input type="text" id="infoP_login" class="form-control" name="infoP_login" />
+        <button onclick="updateLogin();" type="button" value="" class="btnupdateInfoProfileInput btn btn-lg btn-primary btn-block">Изменить</button>
+
+        <input type="password" id="infoP_password" class="form-control" name="infoP_password" />
+        <button onclick="updatePassword();" type="button" value="" class="btnupdateInfoProfileInput btn btn-lg btn-primary btn-block">Изменить</button>
+        
+        
+
+        <select id="infoP_country" class="cssStyleInfoElem form-control"></select>
+        <select id="infoP_region" class="cssStyleInfoElem form-control"></select>
+        <button onclick="updateLocation();" type="button" value="" class="btnupdateInfoProfileInput btn btn-lg btn-primary btn-block">Изменить</button>
+        <select id="infoP_city" class="cssStyleInfoElem form-control"></select>
+
+        <img class="cssStyleInfoElem imgcssProfileUpdate form-control" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS6-8X2D-cgAdpGQLQNBKJvAan9v3rsk-ksKEMb0fNlOE55KztEv-k8bEo" />
+        <button onclick="updateImageProfile();" style="margin:5%;" type="button" value="" class="btnupdateInfoProfileInput btn btn-lg btn-primary btn-block">Изменить</button>
+        <input type="file" class="uploadImage form-control" value="выбрать фотографию" />
+        <input style="margin-bottom: 12px;" type="button" class="form-control " value="Загрузить" onclick="UploadImage(2)" />
+
+        <button style="margin-top:10px;" class="cssStyleInfoElem btn btn-lg btn-primary btn-block" type="button">Изменить все</button>   
+    </form>
+</div>
+
+@*required=""*@
 

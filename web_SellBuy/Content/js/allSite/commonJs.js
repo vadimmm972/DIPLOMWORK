@@ -92,3 +92,8 @@ function SinIn_SIgnOut_RegisterUser_click(param) {
         });
     }
 }
+
+
+function goUserProfilePage() {
+    window.location.href = "UserProfile";
+}
