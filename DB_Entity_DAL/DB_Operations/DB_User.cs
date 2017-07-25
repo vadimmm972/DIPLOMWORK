@@ -94,6 +94,60 @@ namespace DB_Entity_DAL.DB_Operations
         }
 
 
+        public string UpdateInfoSurnameProfile(int _iduser  , string _newsurname)
+        {
+            string getResult = "";
+            try
+            {
+                Sell_BuyEntities db = new Sell_BuyEntities();
+                var result = db.Users.SingleOrDefault(u => u.id == _iduser);
+                if (result != null)
+                {
+                    result.name_first = _newsurname;
+                    db.SaveChanges();
+                    getResult = "Фамилия успешно изменена на " + _newsurname;
+                }
+              
+            }
+            catch (Exception e)
+            {
+                getResult = "Error !";
+                nLog.WriteLog("DB_Entity_DAL -> DB_Operation -> DB_User -> UpdateInfoSurnameProfile :\r\n Message: " + e.Message + "\r\n " + e.StackTrace + "", 0);
+              
+            }
+            return getResult;
+        }
+
+
+
+        public string UpdateInfoNameProfile(int _iduser, string _newname)
+        {
+            string strResult = "";
+            try
+            {
+                Sell_BuyEntities db = new Sell_BuyEntities();
+                var result = db.Users.SingleOrDefault(u => u.id == _iduser);
+                if (result != null)
+                {
+                    result.name_middle = _newname;
+                    db.SaveChanges();
+                    strResult = "Имья успешно изменена на " + _newname;
+                }
+
+            }
+            catch (Exception e)
+            {
+                strResult = "Error !";
+                nLog.WriteLog("DB_Entity_DAL -> DB_Operation -> DB_User -> UpdateInfoNameProfile :\r\n Message: " + e.Message + "\r\n " + e.StackTrace + "", 0);
+
+            }
+
+            return strResult;
+        }
+
+
+
+
         public string UpdateUser(int id, User user)
         {
 

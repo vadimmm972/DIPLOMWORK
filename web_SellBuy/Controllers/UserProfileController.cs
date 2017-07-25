@@ -10,11 +10,12 @@ namespace web_SellBuy.Controllers
     public class UserProfileController : Controller
     {
         UpdateInfoUserProfileTools upUsInfo = new UpdateInfoUserProfileTools();
+        
         //
         // GET: /UserProfile/
         public ActionResult Index()
         {
-            return View("UserProfile");
+            return PartialView("UserProfile");
         }
 
 
@@ -26,6 +27,29 @@ namespace web_SellBuy.Controllers
                 return Json(   upUsInfo.GetAllInfoUser(Convert.ToInt16(value)));
             }
             return Json(null);
+        }
+
+
+        [HttpPost]
+        public string UpdateInfoMyProfileInParam(int _idparam,string newInfo)
+        {
+            string resultString = "";
+            if (Request.Cookies["AuthenticationSellBuy"] != null)
+            {
+                int id = Convert.ToInt16(Request.Cookies["AuthenticationSellBuy"].Value);
+
+                switch(_idparam)
+                {
+                    case 1:
+                        resultString = upUsInfo.UpdateInfoProfileByParamsTools(_idparam,id, newInfo);
+                        break;
+                    case 2:
+                        resultString = upUsInfo.UpdateInfoProfileByParamsTools(_idparam,id, newInfo);
+                        break;
+                }
+
+            }
+            return resultString;
         }
 	}
 }

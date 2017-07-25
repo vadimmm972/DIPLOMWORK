@@ -2,9 +2,9 @@
 
 
 
-window.onload = function () {
+$(document).ready(function(){
     loadInfoUser();
-}
+});
 
 
 
@@ -16,7 +16,7 @@ function loadInfoUser() {
         contentType: false,
         success: function (response) {
             if(response != null){
-                $(".nameBlockInfoUser").text(response.userName);
+                $(".nameBlockInfoUser").text(response.userSurname);
                 $(".SurnameLastNameInfo").text(response.userSurname + " " + response.userName);
                 $(".SurnameLastNameInfo").text(response.userSurname + " " + response.userName);
                 $(".emailProfileInfo").text(response.userMail);

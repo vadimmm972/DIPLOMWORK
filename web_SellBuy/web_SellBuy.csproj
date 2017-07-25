@@ -89,6 +89,7 @@
     <Content Include="Content\css\allPages\demo.css" />
     <Content Include="Content\css\allPages\layoutPage.css" />
     <Content Include="Content\css\allPages\loader.css" />
+    <Content Include="Content\css\allPages\updateInfoProfile.css" />
     <Content Include="Content\css\AuthenticationStyle\authentication.css" />
     <Content Include="Content\css\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\css\bootstrap\bootstrap-theme.min.css" />
@@ -98,6 +99,7 @@
     <Content Include="Content\css\web\infoProfile.css" />
     <Content Include="Content\images\fontAuthentication\fonBody.jpg" />
     <Content Include="Content\js\allSite\commonJs.js" />
+    <Content Include="Content\js\allSite\popup.js" />
     <Content Include="Content\js\allSite\updateInfoProfile.js" />
     <Content Include="Content\js\AuthenticationJs\SignIn_SignUp.js" />
     <Content Include="Content\js\bootsrap\bootstrap.js" />
