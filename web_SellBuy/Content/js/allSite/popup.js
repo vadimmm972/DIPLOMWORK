@@ -5,6 +5,9 @@
 function opendialog(val) {
     updateInfoDialogForm(val);
     $("#dialog").fadeIn(); //плавное появление блока
+    setTimeout(function () {
+        closedialog();
+    }, 3000);
 }
 
 function closedialog() {

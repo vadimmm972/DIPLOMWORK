@@ -104,3 +104,13 @@ body {
     width: 200px !important;
 }
 
+ .countryClass, .regionClass, .sityClass{
+    display:none;
+}
+.infoDrt{
+    display:block;
+}
+
+.btnSaveInfo{
+    display:none;
+}

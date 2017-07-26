@@ -37,17 +37,20 @@ namespace web_SellBuy.Controllers
             if (Request.Cookies["AuthenticationSellBuy"] != null)
             {
                 int id = Convert.ToInt16(Request.Cookies["AuthenticationSellBuy"].Value);
+                resultString = upUsInfo.UpdateInfoProfileByParamsTools(_idparam, id, newInfo);
+            }
+            return resultString;
+        }
 
-                switch(_idparam)
-                {
-                    case 1:
-                        resultString = upUsInfo.UpdateInfoProfileByParamsTools(_idparam,id, newInfo);
-                        break;
-                    case 2:
-                        resultString = upUsInfo.UpdateInfoProfileByParamsTools(_idparam,id, newInfo);
-                        break;
-                }
+         [HttpPost]
+        public string UpdateLocationUserProfile(int _idCountry , int _idRegion , int _idCity)
+        {
 
+            string resultString = "";
+            if (Request.Cookies["AuthenticationSellBuy"] != null)
+            {
+                int id = Convert.ToInt16(Request.Cookies["AuthenticationSellBuy"].Value);
+                resultString = upUsInfo.UpdateLocationProfileTools(id, _idCountry, _idRegion, _idCity);
             }
             return resultString;
         }

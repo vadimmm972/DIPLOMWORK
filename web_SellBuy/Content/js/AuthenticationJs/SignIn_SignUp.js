@@ -1,6 +1,5 @@
-﻿var checkIdCountry = 0;
-var checkIdRegion = 0;
-var checkIdCity = 0;
+﻿
+
 
 window.onload = function ()
 {
@@ -14,91 +13,9 @@ window.onload = function ()
 }
 
 
-function getCountries() {
-
-    $.ajax({
-        url: 'Base/GetCountries',
-        type: "POST",
-        //  processData: false,
-        // contentType: false,
-        success: function (response) {
-
-            var regSelect = document.getElementById("country");
-            for (var i = 0; i < response.length; i++) {
-                var option = document.createElement("option");
-                option.text = response[i].NameCountry;
-                option.value = response[i].idCountry;
-                regSelect.add(option);
-            }
-
-            $('.classRegion').css('display', 'block');
-        },
-        error: function (e) {
-
-        }
-    });
-}
 
 
-function getRegion(event) {
-    var idCountry = event.value;
-    checkIdCountry = idCountry;
-    $.ajax({
-        url: 'Base/GetRegions',
-        type: "POST",
-        data:{id:idCountry},
-        //  processData: false,
-        // contentType: false,
-        success: function (response) {
 
-            var regSelect = document.getElementById("region");
-            for (var i = 0; i < response.length; i++) {
-                var option = document.createElement("option");
-                option.text = response[i].NameRegion;
-                option.value = response[i].idRegion;
-                regSelect.add(option);
-            }
-
-            $(".regionClass").css('display', 'block');
-        },
-        error: function (e) {
-
-        }
-    });
-}
-
-
-function getCity(event) {
-    var idRegion = event.value;
-    checkIdRegion = idRegion;
-    $.ajax({
-        url: 'Base/GetCity',
-        type: "POST",
-        data: { id: idRegion },
-        //  processData: false,
-        // contentType: false,
-        success: function (response) {
-
-            var regSelect = document.getElementById("city");
-            for (var i = 0; i < response.length; i++) {
-                var option = document.createElement("option");
-                option.text = response[i].NameCity;
-                option.value = response[i].idCity;
-                regSelect.add(option);
-            }
-
-            $(".sityClass").css('display', 'block');
-        },
-        error: function (e) {
-
-        }
-    });
-}
-
-
-function getIdCity(event) {
-    checkIdCity = event.value;
-}
 
 function registrationUser() {
 

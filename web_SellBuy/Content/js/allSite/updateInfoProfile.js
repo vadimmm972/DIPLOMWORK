@@ -39,8 +39,12 @@ function LoadInfoUserProfileAtTheContent() {
 
                 $(".imgcssProfileUpdate ").attr('src', '' + response.Image + '');
               
-                $("#infoP_password").val("&#9913;&#9913;&#9913;");
-            
+                $("#infoP_password").val(response.Password);
+
+
+                $("#drtCountryInfo").val(response.Country);
+                $("#drtRegionInfo").val(response.Region);
+                $("#drtCityInfo").val(response.City);
             }
             else {
                 alert("Ошыбка обратитесь к администратору сайта")
@@ -73,7 +77,51 @@ function UpdateInfoProfileParam(param) {
             copyName = newInfoParam;
         }
     }
-
+    else if (param == 3) {
+        newInfoParam = $("#infoP_lastname").val();
+        if (copyLastname == newInfoParam) {
+            errorParam = errorString;
+        }
+        else {
+            copyLastname = newInfoParam;
+        }
+    }
+    else if (param == 4) {
+        newInfoParam = $("#infoP_phone").val();
+        if (copyPhone == newInfoParam) {
+            errorParam = errorString;
+        }
+        else {
+            copyPhone = newInfoParam;
+        }
+    }
+    else if (param == 5) {
+        newInfoParam = $("#infoP_mail").val();
+        if (copyMail == newInfoParam) {
+            errorParam = errorString;
+        }
+        else {
+            copyMail = newInfoParam;
+        }
+    }
+    else if (param == 6) {
+        newInfoParam = $("#infoP_login").val();
+        if (copyLogin == newInfoParam) {
+            errorParam = errorString;
+        }
+        else {
+            copyLogin = newInfoParam;
+        }
+    }
+    else if (param == 7) {
+        newInfoParam = $("#infoP_password").val();
+        if (copyPass == newInfoParam) {
+            errorParam = errorString;
+        }
+        else {
+            copyPass = newInfoParam;
+        }
+    }
     if (errorParam == "" && newInfoParam != "") {
         $.ajax({
             url: 'UserProfile/UpdateInfoMyProfileInParam',
@@ -82,6 +130,9 @@ function UpdateInfoProfileParam(param) {
             success: function (response) {
                 // alert(response);
                 opendialog(response);
+             
+               
+               
             }
         });
     }
@@ -95,81 +146,41 @@ function UpdateInfoProfileParam(param) {
     
 }
 
-function updateNameUser() {
-    var Name = $("#infoP_name").val();
-    if (Name != "") {
-        if (copyName != Name) {
-            $.ajax({
-                url: 'UserProfile/UpdateInfoMyProfileInParam',
-                type: "POST",
-                data: { _idparam: 2, newInfo: Name },
-                success: function (response) {
-                    // alert(response);
-                    opendialog(response);
-                }
-            });
-        }
-        else {
-            opendialog("Вы не можете переименовать имя на тоже самое");
-        }
-    }
-    else {
-        opendialog("Поле не может быть пустым");
-    }
+
+function openGetDirections() {
+
+    getCountries();
+
+
+    $(".btnUpdInfo ").css('display', 'none');
+    $(".infoDrt").css('display', 'none');
+    $(".btnSaveInfo").css('display','block');
 }
 
-function updateSurname() {
-
-    var SurName = $("#infoP_surname").val();
-
-
-    if (SurName != "") {
-        if (copySurname != SurName) {
-            $.ajax({
-                url: 'UserProfile/UpdateInfoMyProfileInParam',
-                type: "POST",
-                data: { _idparam: 1, newInfo: SurName },
-                success: function (response) {
-                   // alert(response);
-                    opendialog(response);
-                }
-            });
-        }
-        else {
-                opendialog("Вы не можете переименовать имя на тоже самое");
-        }
-    }
-    else {
-        opendialog("Поле не может быть пустым");
-    } 
-
-}
-
-function updateLastName() {
-
-}
-
-function updatePhone() {
-
-}
-
-function updateMail() {
-
-}
-
-function updateLogin() {
-
-}
-
-function updatePassword() {
-
-}
 
 function updateLocation() {
+    if (checkIdCountry == 0 || checkIdRegion == 0 || checkIdCity == 0) {
+        opendialog("Не все поля выбраны")
+    }
+    else {
+        $.ajax({
+            url: 'UserProfile/UpdateLocationUserProfile',
+            type: "POST",
+            data: { _idCountry: checkIdCountry, _idRegion: checkIdRegion, _idCity: checkIdCity },
+            success: function (response) {
+                // alert(response);
+                opendialog(response);
 
+                $("#drtCountryInfo").val(nameCountry.trim());
+                $("#drtRegionInfo").val(nameRegion.trim());
+                $("#drtCityInfo").val(nameCity.trim());
+
+                $(".btnSaveInfo").css('dipslay', 'none');
+                $(".btnUpdInfo ").css('display', 'block');
+                $(".directionInfo").css('display', 'none');
+                $(".infoDrt").css('display','block');
+            }
+        });
+    }
+    
 }
-
-function updateImageProfile() {
-
-}
-

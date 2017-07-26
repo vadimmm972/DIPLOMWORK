@@ -30,7 +30,7 @@ namespace OperationTools.common
         {
             UserInfo user = null;
             var usInfo = dbuser.GetUser(id);
-
+            var direction = dbuser.GetDirection(id);
             if(usInfo != null)
             {
                 user = new UserInfo
@@ -42,9 +42,9 @@ namespace OperationTools.common
                     Mail = usInfo.mail,
                     Login = usInfo.C_login,
                     Password = usInfo.C_password,
-                    Country = Convert.ToString(usInfo.id_country),
-                    Region  = Convert.ToString(usInfo.id_region),
-                    City = Convert.ToString(usInfo.id_sity),
+                    Country = direction[0],
+                    Region = direction[1],
+                    City = direction[2],
                     Image = url.photoProfileUserPuth+ usInfo.C_image
 
                 };
@@ -54,39 +54,33 @@ namespace OperationTools.common
         }
 
 
-        //public string UpdateInfoUser(int _param , int _idUser , string _newSurname)
-        //{
-        //    switch (_param)
-        //    {
-        //        case 1: // update info surnaem
-        //            break;
-        //        case 2: // update info name
-        //            break;
-        //        case 3: // update info lastname
-        //            break;
-        //        case 4: // update info phone
-        //            break;
-        //        case 5: // update info 
-        //            break;
-        //        case 6:
-        //            break;
-        //        default:
-        //            return "Error exception !";
-        //    }
-        //    return "";
-        //}
+      
 
-
-        public string UpdateInfoProfileByParamsTools(int _param, int _id, string _newSurname)
+        public string UpdateInfoProfileByParamsTools(int _param, int _id, string _infoupdate)
         {
                string strResult = "";
             switch(_param)
             {
                 case 1:
-                    strResult = dbuser.UpdateInfoSurnameProfile(_id, _newSurname);
+                    strResult = dbuser.UpdateInfoSurnameProfile(_id, _infoupdate);
                     break;
                 case 2:
-                    strResult = dbuser.UpdateInfoNameProfile(_id, _newSurname);
+                    strResult = dbuser.UpdateInfoNameProfile(_id, _infoupdate);
+                    break;
+                case 3:
+                    strResult = dbuser.UpdateLastNameProfile(_id, _infoupdate);
+                    break;
+                case 4:
+                    strResult = dbuser.UpdatePhoneProfile(_id, _infoupdate);
+                    break;
+                case 5:
+                    strResult = dbuser.UpdateMailProfile(_id, _infoupdate);
+                    break;
+                case 6:
+                    strResult = dbuser.UpdateLoginProfile(_id, _infoupdate);
+                    break;
+                case 7:
+                    strResult = dbuser.UpdatePasswordProfile(_id, _infoupdate);
                     break;
             }
 
@@ -94,6 +88,13 @@ namespace OperationTools.common
             return strResult;
         }
 
+
+        public string UpdateLocationProfileTools(int _idUser , int _idCountry, int _idRegion, int _idCity)
+        {
+            string strResult = "";
+            strResult = dbuser.UpdateLocationProfile(_idUser, _idCountry, _idRegion, _idCity);
+            return strResult;
+        }
        
 
         

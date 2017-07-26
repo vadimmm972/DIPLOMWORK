@@ -145,7 +145,192 @@ namespace DB_Entity_DAL.DB_Operations
             return strResult;
         }
 
+        public string UpdateLastNameProfile(int _iduser, string newlastname)
+        {
+            string strResult = "";
+            try
+            {
+                Sell_BuyEntities db = new Sell_BuyEntities();
+                var result = db.Users.SingleOrDefault(u => u.id == _iduser);
+                if (result != null)
+                {
+                    result.name_last = newlastname;
+                    db.SaveChanges();
+                    strResult = "Отчество успешно изменена на " + newlastname;
+                }
 
+            }
+            catch (Exception e)
+            {
+                strResult = "Error !";
+                nLog.WriteLog("DB_Entity_DAL -> DB_Operation -> DB_User -> UpdateLastNameProfile :\r\n Message: " + e.Message + "\r\n " + e.StackTrace + "", 0);
+
+            }
+            return strResult;
+        }
+
+
+        public string UpdatePhoneProfile(int _iduser, string newphone)
+        {
+            string strResult = "";
+            try
+            {
+                Sell_BuyEntities db = new Sell_BuyEntities();
+                var result = db.Users.SingleOrDefault(u => u.id == _iduser);
+                if (result != null)
+                {
+                    result.phone = newphone;
+                    db.SaveChanges();
+                    strResult = "Номер телефона успешно изменен на " + newphone;
+                }
+
+            }
+            catch (Exception e)
+            {
+                strResult = "Error !";
+                nLog.WriteLog("DB_Entity_DAL -> DB_Operation -> DB_User -> UpdatePhoneProfile :\r\n Message: " + e.Message + "\r\n " + e.StackTrace + "", 0);
+
+            }
+            return strResult;
+        }
+
+
+        public string UpdateMailProfile(int _iduser, string newmail)
+        {
+            string strResult = "";
+            try
+            {
+                Sell_BuyEntities db = new Sell_BuyEntities();
+                var result = db.Users.SingleOrDefault(u => u.id == _iduser);
+                if (result != null)
+                {
+                    result.phone = newmail;
+                    db.SaveChanges();
+                    strResult = "Почта успешно изменена на " + newmail;
+                }
+
+            }
+            catch (Exception e)
+            {
+                strResult = "Error !";
+                nLog.WriteLog("DB_Entity_DAL -> DB_Operation -> DB_User -> UpdateMailProfile :\r\n Message: " + e.Message + "\r\n " + e.StackTrace + "", 0);
+
+            }
+            return strResult;
+        }
+
+
+
+        public string UpdateLoginProfile(int _iduser, string newlogin)
+        {
+            string strResult = "";
+            try
+            {
+                Sell_BuyEntities db = new Sell_BuyEntities();
+                var result = db.Users.SingleOrDefault(u => u.id == _iduser);
+                if (result != null)
+                {
+                    var user = db.Users.FirstOrDefault(x => x.C_login == newlogin);
+                     if (user != null)
+                     {
+                        strResult = "Пользователь стаким логином уже существует \n";
+                     }
+                     else
+                     {
+                         result.C_login = newlogin;
+                         db.SaveChanges();
+                         strResult = "Логин успешно изменен на " + newlogin;
+                     }
+                  
+                }
+
+            }
+            catch (Exception e)
+            {
+                strResult = "Error !";
+                nLog.WriteLog("DB_Entity_DAL -> DB_Operation -> DB_User -> UpdateLoginProfile :\r\n Message: " + e.Message + "\r\n " + e.StackTrace + "", 0);
+
+            }
+            return strResult;
+        }
+
+
+        public string UpdatePasswordProfile(int _iduser, string newpasword)
+        {
+            string strResult = "";
+            try
+            {
+                Sell_BuyEntities db = new Sell_BuyEntities();
+                var result = db.Users.SingleOrDefault(u => u.id == _iduser);
+                if (result != null)
+                {
+                    result.C_password = newpasword;
+                    db.SaveChanges();
+                    strResult = "Пароль успешно изменен на " + newpasword;
+                }
+
+            }
+            catch (Exception e)
+            {
+                strResult = "Error !";
+                nLog.WriteLog("DB_Entity_DAL -> DB_Operation -> DB_User -> UpdatePasswordProfile :\r\n Message: " + e.Message + "\r\n " + e.StackTrace + "", 0);
+
+            }
+            return strResult;
+        }
+
+
+        public string UpdateImageProfile(int _iduser, string newimage)
+        {
+            string strResult = "";
+            try
+            {
+                Sell_BuyEntities db = new Sell_BuyEntities();
+                var result = db.Users.SingleOrDefault(u => u.id == _iduser);
+                if (result != null)
+                {
+                    result.C_image = newimage;
+                    db.SaveChanges();
+                    strResult = "Фото успешно изменено на " + newimage;
+                }
+
+            }
+            catch (Exception e)
+            {
+                strResult = "Error !";
+                nLog.WriteLog("DB_Entity_DAL -> DB_Operation -> DB_User -> UpdateImageProfile :\r\n Message: " + e.Message + "\r\n " + e.StackTrace + "", 0);
+
+            }
+            return strResult;
+        }
+
+
+
+        public string UpdateLocationProfile(int _iduser, int _idCountry, int _idRegion, int _idCity)
+        {
+            string strResult = "";
+            try
+            {
+                Sell_BuyEntities db = new Sell_BuyEntities();
+                var result = db.Users.SingleOrDefault(u => u.id == _iduser);
+                if (result != null)
+                {
+                    result.id_country = _idCountry;
+                    result.id_region = _idRegion;
+                    result.id_sity = _idCity;
+                    db.SaveChanges();
+                    strResult = "Даные успешно изменены";
+                }
+
+            }
+            catch (Exception e)
+            {
+                strResult = "Error !";
+                nLog.WriteLog("DB_Entity_DAL -> DB_Operation -> DB_User -> UpdateLocationProfile :\r\n Message: " + e.Message + "\r\n " + e.StackTrace + "", 0);
+
+            }
+            return strResult;
+        }
 
 
         public string UpdateUser(int id, User user)
@@ -207,6 +392,13 @@ namespace DB_Entity_DAL.DB_Operations
                 using (Sell_BuyEntities db = new Sell_BuyEntities())
                 {
                     User user = db.Users.Find(id);
+                      //var  user = db.Users.FirstOrDefault(x => x.id == id);
+
+
+                    var us = (from u in db.Users
+                              where u.id == id
+                              select u).ToList();
+
                     return user;
                 }
             }
@@ -214,6 +406,19 @@ namespace DB_Entity_DAL.DB_Operations
             {
                 return null;
             }
+        }
+        public List<string> GetDirection(int id)
+        {
+            Sell_BuyEntities db = new Sell_BuyEntities();
+            List<string> userDirection = new List<string>();
+             var us = (from u in db.Users
+                              where u.id == id
+                              select u).ToList();
+
+             userDirection.Add(us[0].Country.name_country);
+             userDirection.Add(us[0].Region.name_region);
+             userDirection.Add(us[0].City.name_sity);
+             return userDirection;
         }
 
         public List<User> GetallUsers()
