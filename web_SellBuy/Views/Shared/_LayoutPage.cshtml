@@ -17,13 +17,16 @@
     <link href="~/Content/css/bootstrap/bootstrap.css" rel="stylesheet" />
     <script src="~/Content/js/bootsrap/bootstrap.min.js"></script>
     <script src="~/Content/js/allSite/popup.js"></script>
-
+    <link href="~/Content/css/allPages/loader.css" rel="stylesheet" />
 
 </head>
 <body>
+    <div class="loadingBlock">
+        <div class="loader"></div>
+    </div>
     <nav class="navNavigationStyle navbar navbar-default  navbar-fixed" role="navigation">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Главная</a>
+            <a class="cssLayoutLocation navbar-brand" href="Home">Главная</a>
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -38,30 +41,29 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                 <ul class="nav navbar-nav">
-                    <li><a href="#">О сайте</a></li>
+                    <li><a class="cssLayoutLocation" href="#">О сайте</a></li>
                     <li class="styleAll"><a href="#"></a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Поиск<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li class="styleAll"><a href="#">Категории по продуктам </a></li">
+                        <a href="#" class="cssLayoutLocation dropdown-toggle" data-toggle="dropdown">Поиск<b class="caret"></b></a>
+                        <ul class="cssDropDownMenuLayout dropdown-menu">
+                            <li class="styleAll"><a class="cssLayoutLocation" href="#">Категории по продуктам </a></li">
                             <li class="divider"></li>
 
-                            <li><a href="#">Категории по магазинам</a></li">
+                            <li><a class="cssLayoutLocation" href="#">Категории по магазинам</a></li">
                             <li class="divider"></li>
-                         
+
                         </ul>
                     </li>
                     @if (Request.Cookies["AuthenticationSellBuy"] != null)
                     {
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Мои магазины<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li class="styleAll"><a href="#">Список магазинов</a></li">
-                                <li class="divider"></li>
+                            <a href="#" class="cssLayoutLocation dropdown-toggle" data-toggle="dropdown">Мои магазины<b class="caret"></b></a>
+                            <ul class="cssDropDownMenuLayout dropdown-menu">
+                                <li class=" styleAll"><a class="cssLayoutLocation" href="#">Список магазинов</a><li class="divider"></li>
 
-                                <li><a href="#">Создать магазин</a></li">
+                                <li><a class="cssLayoutLocation" href="#">Создать магазин</a></li">
                                 <li class="divider"></li>
-                                <li><a href="#">Поиск магазина</a></li">
+                                <li><a class="cssLayoutLocation" href="#">Поиск магазина</a></li">
                             </ul>
                         </li>
                     }
@@ -96,7 +98,7 @@
                         </li class="styleAll"> -->
 
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="#" class="cssLayoutLocation dropdown-toggle" data-toggle="dropdown">
                                 <span class="glyphicon glyphicon-user"></span>&nbsp;
                                 <strong class="nameBlockInfoUser"></strong>
                                 <span class="glyphicon glyphicon-chevron-down"></span>

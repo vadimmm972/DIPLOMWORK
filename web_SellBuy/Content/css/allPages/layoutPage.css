@@ -1,6 +1,21 @@
 ﻿body {
 }
 
+
+
+.cssDropDownMenuLayout, .container-fluid{
+        background-color: rgb(2, 43, 81) !important;
+
+}
+.cssLayoutLocation{
+    color:white  !important;
+    background-color: rgb(2, 43, 81) !important;
+}
+
+.cssLayoutLocation:hover{
+   color: #33B8FF !important;
+}
+
 nav {
     background: rgba(255,255,255,0.25);
 }

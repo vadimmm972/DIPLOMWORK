@@ -1,4 +1,5 @@
 ﻿using DB_Entity_DAL.DB_Operations;
+using DB_Entity_DAL.MedelsDataBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -82,6 +83,9 @@ namespace OperationTools.common
                 case 7:
                     strResult = dbuser.UpdatePasswordProfile(_id, _infoupdate);
                     break;
+                case 8:
+                    strResult = dbuser.UpdateImageProgile(_id, _infoupdate);
+                    break;
             }
 
        
@@ -95,9 +99,36 @@ namespace OperationTools.common
             strResult = dbuser.UpdateLocationProfile(_idUser, _idCountry, _idRegion, _idCity);
             return strResult;
         }
-       
 
-        
+
+        public string UpdatAllInfoUserProfileTools(int _iduser , string _surname, string _name, string _lastname
+            , string _phone, string _mail, string _login
+            , string _password, int _idCountry, int _idRegion
+            , int _idCity , string _image)
+        {
+            User userNew = new User
+            {
+                name_first = _surname,
+                name_middle = _name,
+                name_last = _lastname,
+                phone = _phone,
+                mail = _mail,
+                C_login = _login,
+                C_password = _password,
+                id_country = _idCountry,
+                id_region = _idRegion,
+                id_sity = _idCity,
+                C_image = _image,
+                C_status = 1,
+                active = 1,
+                id_language = 1,
+                date_register = ""
+
+            };
+
+            dbuser.UpdateUser(_iduser, userNew);
+            return "";
+        }
 
     }
 }

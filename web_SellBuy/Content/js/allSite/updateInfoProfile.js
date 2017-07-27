@@ -122,6 +122,15 @@ function UpdateInfoProfileParam(param) {
             copyPass = newInfoParam;
         }
     }
+    else if (param == 8) {
+        if (imageName != "") {
+            newInfoParam = imageName;
+        }
+        else {
+            errorParam = errorString;
+        }
+    }
+
     if (errorParam == "" && newInfoParam != "") {
         $.ajax({
             url: 'UserProfile/UpdateInfoMyProfileInParam',
@@ -183,4 +192,33 @@ function updateLocation() {
         });
     }
     
+}
+
+function updateAllInfoProfile() {
+    var surname = $("#infoP_surname").val();
+    var name = $("#infoP_name").val();
+    var lastname = $("#infoP_lastname").val();
+    var phone = $("#infoP_phone").val();
+    var mail = $("#infoP_mail").val();
+    var login = $("#infoP_login").val();
+    var password = $("#infoP_password").val();
+    var idcountry = checkIdCountry;
+    var idregion = checkIdRegion;
+    var idcity = checkIdCity;
+
+    if (surname == "" || name == "" || lastname == "" || phone == "" || mail == "" || login == "" || password == "" || idcountry == "" || idregion == "" || idcity == "" || imageName == "") {
+        opendialog("Заполние все поля !");
+    }
+    else {
+        $.ajax({
+            url: 'UserProfile/UpdateAllInfoForUserInProfile',
+            type: "POST",
+            data: { _surname: surname, _name: name, _lastname: lastname, _phone: phone, _mail: mail, _login: login, _password: password, _idCountry: idcountry, _idRegion: idregion, _idCity: idcity, _image: imageName },
+            success: function (response) {
+                // alert(response);
+                opendialog(response);
+
+            }
+        });
+    }
 }

@@ -332,6 +332,31 @@ namespace DB_Entity_DAL.DB_Operations
             return strResult;
         }
 
+        public string UpdateImageProgile(int _iduser, string _imageName)
+        {
+            string strResult = "";
+            try
+            {
+                Sell_BuyEntities db = new Sell_BuyEntities();
+                var result = db.Users.SingleOrDefault(u => u.id == _iduser);
+                if (result != null)
+                {
+                    result.C_image = _imageName;
+               
+                    db.SaveChanges();
+                    strResult = "Фото успешно изменено";
+                }
+
+            }
+            catch (Exception e)
+            {
+                strResult = "Error !";
+                nLog.WriteLog("DB_Entity_DAL -> DB_Operation -> DB_User -> UpdateImageProgile :\r\n Message: " + e.Message + "\r\n " + e.StackTrace + "", 0);
+
+            }
+            return strResult;
+        }
+
 
         public string UpdateUser(int id, User user)
         {
@@ -349,15 +374,15 @@ namespace DB_Entity_DAL.DB_Operations
                 u.id_country = user.id_country;
                 u.id_region = user.id_region;
                 u.id_sity = user.id_sity;
-                u.C_status = user.C_status;
-                u.active = user.active;
+                //u.C_status = user.C_status;
+                //u.active = user.active;
                 u.id_language = user.id_language;
                 u.C_image = user.C_image;
-                u.date_register = user.date_register;
+                //u.date_register = user.date_register;
                 u.C_login = user.C_login;
                 u.C_password = user.C_password;
                 db.SaveChanges();
-                return u.name_last + "was succefully updated";
+                return "Информация изменена";
             }
             catch (Exception e)
             {
