@@ -83,7 +83,7 @@
 
                 @if (Request.Cookies["AuthenticationSellBuy"] != null)
                 {
-
+                    
                     <ul class="nav navbar-nav navbar-right">
                         <!-- <li class="styleAll"><a href="#">Link</a></li class="styleAll">
                         <li class="dropdown">
@@ -138,12 +138,15 @@
                         </li>
 
                     </ul>
+                       <ul class="nav navbar-nav navbar-right">
+                           <li class="signInBtn congMagUs"><a href="/Manager" class="cssLayoutLocation" onclick="">Менеджер</a></li>
+                    </ul>
                 }
                 else
                 {
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="signInBtn"><strong onclick="SinIn_SIgnOut_RegisterUser_click(1)">Войти</strong></li>
-                        <li class="signInBtn"><strong onclick="SinIn_SIgnOut_RegisterUser_click(2)">Регистрация</strong></li>
+                        <li class="signInBtn"><strong class="cssLayoutLocation" onclick="SinIn_SIgnOut_RegisterUser_click(1)">Войти</strong></li>
+                        <li class="signInBtn"><strong class="cssLayoutLocation" onclick="SinIn_SIgnOut_RegisterUser_click(2)">Регистрация</strong></li>
                     </ul>
                 }
             </div>

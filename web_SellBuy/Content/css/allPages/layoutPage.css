@@ -2,6 +2,10 @@
 }
 
 
+.congMagUs{
+    
+    margin-right:10px;
+}
 
 .cssDropDownMenuLayout, .container-fluid{
         background-color: rgb(2, 43, 81) !important;
@@ -51,7 +55,7 @@ nav {
 
 
 .signInBtn {
-    margin: 10px;
+    /*margin: 10px;*/
     cursor: pointer;
 }
 
